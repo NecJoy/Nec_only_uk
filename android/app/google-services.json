@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "739699861236",
+    "project_id": "nec-money-699a4",
+    "storage_bucket": "nec-money-699a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739699861236:android:83b1b60d6c6bd12e04a0a1",
+        "android_client_info": {
+          "package_name": "com.necmoney.necmoneyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739699861236-h6eku0n1n9kdlb7vtsj7fdlloeioasu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMrEcx5STnb0fpMblGkGPb2FincW9AK4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739699861236-h6eku0n1n9kdlb7vtsj7fdlloeioasu1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "739699861236-0t9k6esbg0uvvq3vg7a8tkbvu16n6h80.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "asdas.ccc.dd"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,543 @@
+// To parse this JSON data, do
+//
+//     final bankBranchesModel = bankBranchesModelFromJson(jsonString);
+
+import 'dart:convert';
+
+BankBranchesModel bankBranchesModelFromJson(String str) => BankBranchesModel.fromJson(json.decode(str));
+
+String bankBranchesModelToJson(BankBranchesModel data) => json.encode(data.toJson());
+
+class BankBranchesModel {
+    BankBranchesModel({
+        this.remitterTypeId,
+        this.modeId,
+        this.countryId,
+        this.currencyId,
+        this.city,
+        this.subcompanyId,
+        this.companyId,
+        this.bankId,
+        this.selectBank,
+        this.beneficiaryId,
+        this.status,
+        this.remitNoPrefix,
+        this.exchangeLcIsoCode,
+        this.canChangeCommission,
+        this.rate,
+        this.operationDate,
+        this.amount,
+        this.commission,
+        this.cardCharge,
+        this.fldPsfx,
+        this.statusDetail,
+        this.cardType,
+        this.remitterTypes,
+        this.remitterSetup,
+        this.countries,
+        this.nationalities,
+        this.incomeSources,
+        this.roadTypes,
+        this.cities,
+        this.remitterDocumentTypes,
+        this.remitterBehaviorClasses,
+        this.subGroups,
+        this.sectors,
+        this.sbSectors,
+        this.linkBetweenTPs,
+        this.remitter,
+        this.beneficiary,
+        this.paymentModes,
+        this.beneficiaries,
+        this.currencies,
+        this.subcompaniesCities,
+        this.bankCities,
+        this.subcompanies,
+        this.subcompanyBranches,
+        this.beneficiarySetup,
+        this.benefBanks,
+        this.benefAccTypes,
+        this.benefDocTypes,
+        this.bankBranches,
+        this.relations,
+        this.birthCountries,
+        this.purposes,
+        this.maturityDays,
+        this.instrumentTypes,
+        this.newTt,
+        this.itemId,
+        this.docOf,
+        this.messageText,
+        this.encryptedData,
+        this.searchCriteria,
+        this.remittanceNo,
+        this.siteRef,
+        this.remName,
+        this.remBirthDate,
+        this.remSurname,
+        this.remCountryIsoCode,
+        this.phoneNo,
+        this.remAddress,
+        this.remZipCode,
+        this.remProvince,
+        this.remEmailAddress,
+        this.remPhoneNo,
+        this.remCity,
+        this.processId,
+        this.sessionId,
+        this.returnStatus,
+        this.returnMessage,
+        this.validationErrors,
+        this.totalPages,
+        this.totalRows,
+        this.pageSize,
+        this.page,
+        this.isAuthenicated,
+        this.sortExpression,
+        this.sortDirection,
+        this.currentPageNumber,
+        this.filter,
+        this.sessionExpired,
+    });
+
+    int? remitterTypeId;
+    int? modeId;
+    int? countryId;
+    int? currencyId;
+    String? city;
+    int? subcompanyId;
+    int? companyId;
+    int? bankId;
+    bool? selectBank;
+    int? beneficiaryId;
+    int? status;
+    dynamic remitNoPrefix;
+    dynamic exchangeLcIsoCode;
+    bool? canChangeCommission;
+    int? rate;
+    DateTime? operationDate;
+    int? amount;
+    int? commission;
+    int? cardCharge;
+    dynamic fldPsfx;
+    dynamic statusDetail;
+    dynamic cardType;
+    dynamic remitterTypes;
+    dynamic remitterSetup;
+    dynamic countries;
+    dynamic nationalities;
+    dynamic incomeSources;
+    dynamic roadTypes;
+    dynamic cities;
+    dynamic remitterDocumentTypes;
+    dynamic remitterBehaviorClasses;
+    dynamic subGroups;
+    dynamic sectors;
+    dynamic sbSectors;
+    dynamic linkBetweenTPs;
+    dynamic remitter;
+    dynamic beneficiary;
+    dynamic paymentModes;
+    dynamic beneficiaries;
+    dynamic currencies;
+    dynamic subcompaniesCities;
+    dynamic bankCities;
+    dynamic subcompanies;
+    dynamic subcompanyBranches;
+    dynamic beneficiarySetup;
+    dynamic benefBanks;
+    dynamic benefAccTypes;
+    dynamic benefDocTypes;
+    List<BankBranchModel>? bankBranches;
+    dynamic relations;
+    dynamic birthCountries;
+    dynamic purposes;
+    dynamic maturityDays;
+    dynamic instrumentTypes;
+    dynamic newTt;
+    int? itemId;
+    int? docOf;
+    dynamic messageText;
+    dynamic encryptedData;
+    dynamic searchCriteria;
+    dynamic remittanceNo;
+    dynamic siteRef;
+    dynamic remName;
+    dynamic remBirthDate;
+    dynamic remSurname;
+    dynamic remCountryIsoCode;
+    dynamic phoneNo;
+    dynamic remAddress;
+    dynamic remZipCode;
+    dynamic remProvince;
+    dynamic remEmailAddress;
+    dynamic remPhoneNo;
+    dynamic remCity;
+    int? processId;
+    dynamic sessionId;
+    bool? returnStatus;
+    List<dynamic>? returnMessage;
+    Filter? validationErrors;
+    int? totalPages;
+    int? totalRows;
+    int? pageSize;
+    int? page;
+    bool? isAuthenicated;
+    String? sortExpression;
+    String? sortDirection;
+    int? currentPageNumber;
+    Filter? filter;
+    bool? sessionExpired;
+
+    factory BankBranchesModel.fromJson(Map<String, dynamic> json) => BankBranchesModel(
+        remitterTypeId: json["remitterTypeID"],
+        modeId: json["modeID"],
+        countryId: json["countryID"],
+        currencyId: json["currencyID"],
+        city: json["city"],
+        subcompanyId: json["subcompanyID"],
+        companyId: json["companyID"],
+        bankId: json["bankID"],
+        selectBank: json["selectBank"],
+        beneficiaryId: json["beneficiaryID"],
+        status: json["status"],
+        remitNoPrefix: json["remitNoPrefix"],
+        exchangeLcIsoCode: json["exchangeLCIsoCode"],
+        canChangeCommission: json["canChangeCommission"],
+        rate: json["rate"],
+        operationDate: DateTime.parse(json["operationDate"]),
+        amount: json["amount"],
+        commission: json["commission"],
+        cardCharge: json["cardCharge"],
+        fldPsfx: json["fldPsfx"],
+        statusDetail: json["statusDetail"],
+        cardType: json["cardType"],
+        remitterTypes: json["remitterTypes"],
+        remitterSetup: json["remitterSetup"],
+        countries: json["countries"],
+        nationalities: json["nationalities"],
+        incomeSources: json["incomeSources"],
+        roadTypes: json["roadTypes"],
+        cities: json["cities"],
+        remitterDocumentTypes: json["remitterDocumentTypes"],
+        remitterBehaviorClasses: json["remitterBehaviorClasses"],
+        subGroups: json["subGroups"],
+        sectors: json["sectors"],
+        sbSectors: json["sbSectors"],
+        linkBetweenTPs: json["linkBetweenTPs"],
+        remitter: json["remitter"],
+        beneficiary: json["beneficiary"],
+        paymentModes: json["paymentModes"],
+        beneficiaries: json["beneficiaries"],
+        currencies: json["currencies"],
+        subcompaniesCities: json["subcompaniesCities"],
+        bankCities: json["bankCities"],
+        subcompanies: json["subcompanies"],
+        subcompanyBranches: json["subcompanyBranches"],
+        beneficiarySetup: json["beneficiarySetup"],
+        benefBanks: json["benefBanks"],
+        benefAccTypes: json["benefAccTypes"],
+        benefDocTypes: json["benefDocTypes"],
+        bankBranches: List<BankBranchModel>.from(json["bankBranches"].map((x) => BankBranchModel.fromJson(x))),
+        relations: json["relations"],
+        birthCountries: json["birthCountries"],
+        purposes: json["purposes"],
+        maturityDays: json["maturityDays"],
+        instrumentTypes: json["instrumentTypes"],
+        newTt: json["newTT"],
+        itemId: json["itemID"],
+        docOf: json["docOf"],
+        messageText: json["messageText"],
+        encryptedData: json["encryptedData"],
+        searchCriteria: json["searchCriteria"],
+        remittanceNo: json["remittanceNo"],
+        siteRef: json["siteRef"],
+        remName: json["remName"],
+        remBirthDate: json["remBirthDate"],
+        remSurname: json["remSurname"],
+        remCountryIsoCode: json["remCountryIsoCode"],
+        phoneNo: json["phoneNo"],
+        remAddress: json["remAddress"],
+        remZipCode: json["remZipCode"],
+        remProvince: json["remProvince"],
+        remEmailAddress: json["remEmailAddress"],
+        remPhoneNo: json["remPhoneNo"],
+        remCity: json["remCity"],
+        processId: json["processId"],
+        sessionId: json["sessionId"],
+        returnStatus: json["returnStatus"],
+        returnMessage: List<dynamic>.from(json["returnMessage"].map((x) => x)),
+        validationErrors: Filter.fromJson(json["validationErrors"]),
+        totalPages: json["totalPages"],
+        totalRows: json["totalRows"],
+        pageSize: json["pageSize"],
+        page: json["page"],
+        isAuthenicated: json["isAuthenicated"],
+        sortExpression: json["sortExpression"],
+        sortDirection: json["sortDirection"],
+        currentPageNumber: json["currentPageNumber"],
+        filter: Filter.fromJson(json["filter"]),
+        sessionExpired: json["sessionExpired"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "remitterTypeID": remitterTypeId,
+        "modeID": modeId,
+        "countryID": countryId,
+        "currencyID": currencyId,
+        "city": city,
+        "subcompanyID": subcompanyId,
+        "companyID": companyId,
+        "bankID": bankId,
+        "selectBank": selectBank,
+        "beneficiaryID": beneficiaryId,
+        "status": status,
+        "remitNoPrefix": remitNoPrefix,
+        "exchangeLCIsoCode": exchangeLcIsoCode,
+        "canChangeCommission": canChangeCommission,
+        "rate": rate,
+        "operationDate": operationDate!.toIso8601String(),
+        "amount": amount,
+        "commission": commission,
+        "cardCharge": cardCharge,
+        "fldPsfx": fldPsfx,
+        "statusDetail": statusDetail,
+        "cardType": cardType,
+        "remitterTypes": remitterTypes,
+        "remitterSetup": remitterSetup,
+        "countries": countries,
+        "nationalities": nationalities,
+        "incomeSources": incomeSources,
+        "roadTypes": roadTypes,
+        "cities": cities,
+        "remitterDocumentTypes": remitterDocumentTypes,
+        "remitterBehaviorClasses": remitterBehaviorClasses,
+        "subGroups": subGroups,
+        "sectors": sectors,
+        "sbSectors": sbSectors,
+        "linkBetweenTPs": linkBetweenTPs,
+        "remitter": remitter,
+        "beneficiary": beneficiary,
+        "paymentModes": paymentModes,
+        "beneficiaries": beneficiaries,
+        "currencies": currencies,
+        "subcompaniesCities": subcompaniesCities,
+        "bankCities": bankCities,
+        "subcompanies": subcompanies,
+        "subcompanyBranches": subcompanyBranches,
+        "beneficiarySetup": beneficiarySetup,
+        "benefBanks": benefBanks,
+        "benefAccTypes": benefAccTypes,
+        "benefDocTypes": benefDocTypes,
+        "bankBranches": List<dynamic>.from(bankBranches!.map((x) => x.toJson())),
+        "relations": relations,
+        "birthCountries": birthCountries,
+        "purposes": purposes,
+        "maturityDays": maturityDays,
+        "instrumentTypes": instrumentTypes,
+        "newTT": newTt,
+        "itemID": itemId,
+        "docOf": docOf,
+        "messageText": messageText,
+        "encryptedData": encryptedData,
+        "searchCriteria": searchCriteria,
+        "remittanceNo": remittanceNo,
+        "siteRef": siteRef,
+        "remName": remName,
+        "remBirthDate": remBirthDate,
+        "remSurname": remSurname,
+        "remCountryIsoCode": remCountryIsoCode,
+        "phoneNo": phoneNo,
+        "remAddress": remAddress,
+        "remZipCode": remZipCode,
+        "remProvince": remProvince,
+        "remEmailAddress": remEmailAddress,
+        "remPhoneNo": remPhoneNo,
+        "remCity": remCity,
+        "processId": processId,
+        "sessionId": sessionId,
+        "returnStatus": returnStatus,
+        "returnMessage": List<dynamic>.from(returnMessage!.map((x) => x)),
+        "validationErrors": validationErrors!.toJson(),
+        "totalPages": totalPages,
+        "totalRows": totalRows,
+        "pageSize": pageSize,
+        "page": page,
+        "isAuthenicated": isAuthenicated,
+        "sortExpression": sortExpression,
+        "sortDirection": sortDirection,
+        "currentPageNumber": currentPageNumber,
+        "filter": filter!.toJson(),
+        "sessionExpired": sessionExpired,
+    };
+}
+
+class BankBranchModel {
+    BankBranchModel({
+        this.bankBranchId,
+        this.bankId,
+        this.code4,
+        this.countryId,
+        this.address1,
+        this.address2,
+        this.cityId,
+        this.cityCode,
+        this.cityName,
+        this.stateCode,
+        this.stateName,
+        this.zipCode,
+        this.cabCode,
+        this.countryName,
+        this.addressLine,
+        this.fullAddress,
+        this.code1,
+        this.code2,
+        this.code3,
+        this.name,
+        this.sequenceId,
+        this.nameCode,
+        this.codeName,
+        this.sessionId,
+        this.returnStatus,
+        this.returnMessage,
+        this.validationErrors,
+        this.totalPages,
+        this.totalRows,
+        this.pageSize,
+        this.page,
+        this.isAuthenicated,
+        this.sortExpression,
+        this.sortDirection,
+        this.currentPageNumber,
+        this.filter,
+        this.sessionExpired,
+    });
+
+    int? bankBranchId;
+    int? bankId;
+    String? code4;
+    int? countryId;
+    String? address1;
+    String? address2;
+    int? cityId;
+    String? cityCode;
+    String? cityName;
+    String? stateCode;
+    String? stateName;
+    String? zipCode;
+    String? cabCode;
+    String? countryName;
+    String? addressLine;
+    String? fullAddress;
+    String? code1;
+    String? code2;
+    String? code3;
+    String? name;
+    int? sequenceId;
+    String? nameCode;
+    String? codeName;
+    dynamic sessionId;
+    bool? returnStatus;
+    List<dynamic>? returnMessage;
+    Filter? validationErrors;
+    int? totalPages;
+    int? totalRows;
+    int? pageSize;
+    int? page;
+    bool? isAuthenicated;
+    String? sortExpression;
+    String? sortDirection;
+    int? currentPageNumber;
+    Filter? filter;
+    bool? sessionExpired;
+
+    factory BankBranchModel.fromJson(Map<String, dynamic> json) => BankBranchModel(
+        bankBranchId: json["bankBranchID"],
+        bankId: json["bankID"],
+        code4: json["code4"],
+        countryId: json["countryID"],
+        address1: json["address1"],
+        address2: json["address2"],
+        cityId: json["cityID"],
+        cityCode: json["cityCode"],
+        cityName: json["cityName"],
+        stateCode: json["stateCode"],
+        stateName: json["stateName"],
+        zipCode: json["zipCode"],
+        cabCode: json["cabCode"],
+        countryName: json["countryName"],
+        addressLine: json["addressLine"],
+        fullAddress: json["fullAddress"],
+        code1: json["code1"],
+        code2: json["code2"],
+        code3: json["code3"],
+        name: json["name"],
+        sequenceId: json["sequenceID"],
+        nameCode: json["nameCode"],
+        codeName: json["codeName"],
+        sessionId: json["sessionId"],
+        returnStatus: json["returnStatus"],
+        returnMessage: List<dynamic>.from(json["returnMessage"].map((x) => x)),
+        validationErrors: Filter.fromJson(json["validationErrors"]),
+        totalPages: json["totalPages"],
+        totalRows: json["totalRows"],
+        pageSize: json["pageSize"],
+        page: json["page"],
+        isAuthenicated: json["isAuthenicated"],
+        sortExpression: json["sortExpression"],
+        sortDirection: json["sortDirection"],
+        currentPageNumber: json["currentPageNumber"],
+        filter: Filter.fromJson(json["filter"]),
+        sessionExpired: json["sessionExpired"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "bankBranchID": bankBranchId,
+        "bankID": bankId,
+        "code4": code4,
+        "countryID": countryId,
+        "address1": address1,
+        "address2": address2,
+        "cityID": cityId,
+        "cityCode": cityCode,
+        "cityName": cityName,
+        "stateCode": stateCode,
+        "stateName": stateName,
+        "zipCode": zipCode,
+        "cabCode": cabCode,
+        "countryName": countryName,
+        "addressLine": addressLine,
+        "fullAddress": fullAddress,
+        "code1": code1,
+        "code2": code2,
+        "code3": code3,
+        "name": name,
+        "sequenceID": sequenceId,
+        "nameCode": nameCode,
+        "codeName": codeName,
+        "sessionId": sessionId,
+        "returnStatus": returnStatus,
+        "returnMessage": List<dynamic>.from(returnMessage!.map((x) => x)),
+        "validationErrors": validationErrors!.toJson(),
+        "totalPages": totalPages,
+        "totalRows": totalRows,
+        "pageSize": pageSize,
+        "page": page,
+        "isAuthenicated": isAuthenicated,
+        "sortExpression": sortExpression,
+        "sortDirection": sortDirection,
+        "currentPageNumber": currentPageNumber,
+        "filter": filter!.toJson(),
+        "sessionExpired": sessionExpired,
+    };
+}
+
+class Filter {
+    Filter();
+
+    factory Filter.fromJson(Map<String, dynamic> json) => Filter(
+    );
+
+    Map<String, dynamic> toJson() => {
+    };
+}

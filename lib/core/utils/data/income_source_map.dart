@@ -1,0 +1,15 @@
+Map<String ,int> incomeSource = {
+  "EMPLOYMENT INCOME" : 60,
+  "BUSINESS INCOME" :  67,
+  "PERSONAL SAVINGS" :  68,
+  "LOTTERY": 69,
+  "GIFT": 70,
+  "OTHER" : 191,
+  "STUDENT LOAN" : 192,
+  "CAPITAL GAINS" : 208,
+  "DIVIDENDS" : 209,
+  "INHERITANCE": 210,
+  "INTEREST": 211,
+  "PENSION" : 212,
+  "LOAN" : 213,
+};
