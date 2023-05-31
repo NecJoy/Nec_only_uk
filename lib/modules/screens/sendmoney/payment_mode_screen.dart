@@ -34,7 +34,6 @@ class PaymentModeScreen extends StatelessWidget {
   final box = GetStorage();
   List instrumentTypes = [];
   List purposesList = [];
-
   PaymentModeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -52,9 +51,7 @@ class PaymentModeScreen extends StatelessWidget {
                   Text('paymentMode'.tr,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  SizedBox(
-                    height: 8,
-                  ),
+                  SizedBox(height: 8,),
                   Text('pleaseselectyourPaymentMode'.tr,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
@@ -71,11 +68,11 @@ class PaymentModeScreen extends StatelessWidget {
                             baseUrl: Strings.baseUrl, 
                             url: Strings.purposeUrl + "RemitterID=${box.read(Keys.remitterId)}",
                           );
-
                           //user payment type 
                           for(var i in response["instrumentTypes"]){
                               instrumentTypes.add(i);
                           }
+                          box.write(Keys.remitNoPrefix ,response["remitNoPrefix"]);
                           box.write(Keys.exchangeLCIsoCode, response["exchangeLCIsoCode"]);
                           box.write(Keys.remAddress, response["remAddress"]);
                           box.write(Keys.remCountyCode, response["remCountryIsoCode"]);
@@ -89,7 +86,6 @@ class PaymentModeScreen extends StatelessWidget {
                            purposesList.add(i);
                           }
                           box.write(Keys.aesKey, response["baseKey"]);
-
                       }
                       var _c =  purposesList.where((element) => element.toString().toLowerCase().contains(filter!.toLowerCase()));
                       return _c.map((e) => PurposeModel.fromJson(e)).toList();
@@ -350,13 +346,12 @@ class PaymentModeScreen extends StatelessWidget {
                             }else{
                               Helpers.dengerAlert(title: "Alart" , message: "Your name and phone number missing . Please edit receiver information . Then Try again" );
                             }
-
                             print(_receiverListController.paymentType.values);
                           }
                         },
                         buttonLevel: "Send",
                         color: AppColor.kGreenColor,
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(height: 16,),

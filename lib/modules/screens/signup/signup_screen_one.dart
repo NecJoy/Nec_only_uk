@@ -1,5 +1,5 @@
 
-// ignore_for_file: unused_field
+// ignore_for_file: unused_field, must_be_immutable
 import 'dart:convert';
 
 import 'package:flutter/material.dart';

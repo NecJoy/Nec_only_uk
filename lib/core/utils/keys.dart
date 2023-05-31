@@ -33,8 +33,8 @@ class Keys {
   static const String userName = "UserName";
   static const String anyBankSubCompany = "358";
   static const String anyBankCompany = "75";
-  //static const String mobileWalletID = "6";
-  static const String mobileWalletID = "11";
+  static const String mobileWalletID = "6";
+  //static const String mobileWalletID = "11";
   static const String accountPayeeID = "1";
   static const String cashPayeeID = "2";
   static const String pakistanConuntryId = "179";

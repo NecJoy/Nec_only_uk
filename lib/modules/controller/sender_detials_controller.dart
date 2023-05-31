@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:necmoney/core/utils/helpers.dart';
 import 'package:necmoney/core/utils/keys.dart';
-import 'package:necmoney/core/utils/log.dart';
 import 'package:necmoney/core/values/strings.dart';
 import 'package:necmoney/data/model/city_model.dart';
 import 'package:necmoney/data/model/country_model.dart';
