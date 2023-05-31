@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:necmoney/core/utils/log.dart';
 import 'package:necmoney/core/utils/session_timer.dart';
 import 'package:sizer/sizer.dart';
 

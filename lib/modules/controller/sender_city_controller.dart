@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:http/http.dart';
 import 'package:necmoney/core/values/strings.dart';
 import 'package:necmoney/data/provider/api_provider.dart';
 import 'package:necmoney/modules/controller/sender_detials_controller.dart';

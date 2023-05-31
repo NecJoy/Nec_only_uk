@@ -19,11 +19,16 @@ class Strings {
   static String playRatingUrl = "https://play.google.com/store/apps/details?id=com.necmoney.necmoneyapp";
   static String appStoreRatingUrl = "https://apps.apple.com/us/app/nec-money/id1476959641";
   //Base url
-  // TT issue date time change And Link change
-
-  //static String baseUrl = "https://uat.necmoney.eu/Mobile/api";
   static String baseUrl = "https://mapp.necmoney.com/api";
+  static String report = " https://mapp.necmoney.com/Reports/";
+
+
+  // TT issue date time change And Link change
+  //static String baseUrl = "https://uat.necmoney.eu/Mobile/api";
   //static String baseUrl = "https://mapp.necmoney.app/necmoneyonlinepay/api";
+  // static String report = "https://mapp.necmoney.app/necmoneyonlinepay/Reports/";
+  // static String report = "https://uat.necmoney.eu/Mobile/Reports/";
+  // static String report = "https://uat2.necmoney.eu/Mobile/Reports/";
   static String countryUrl = "GlobalService/GetRegisterCountries";
   static String birthCountryUrl = "GlobalService/GetCountriesByModeID?ModeID=1";
   static String getRemitterWithDependencies   = "GlobalService/GetRemitterWithDependencies";
@@ -69,10 +74,6 @@ class Strings {
   static String getDealingRate ="GlobalService/GetDealingRate?";
   static String saveRemittance = "GlobalService/SaveRemittance";
   static String getCustomerCommission = "GlobalService/GetCustomerCommission?";
-  static String report = " https://mapp.necmoney.com/Reports/";
-    // static String report = "https://mapp.necmoney.app/necmoneyonlinepay/Reports/";
-    // static String report = "https://uat.necmoney.eu/Mobile/Reports/";
-    // static String report = "https://uat2.necmoney.eu/Mobile/Reports/";
   static String getRemitter = "GlobalService/GetRemitterWithDependencies?";
   static String relationshipUrl = "GlobalService/GetBenefDependencies?beneficiaryID=0";
   static String instrumentUrl = "GlobalService/GetBenefsForTTIssue?";

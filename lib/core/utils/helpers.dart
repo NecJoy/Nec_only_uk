@@ -158,7 +158,7 @@ static keyboardhide (){
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColor.kGreenColor),
       ),
-      focusedErrorBorder:OutlineInputBorder(
+      focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColor.kGreenColor),
       ),
       errorBorder: OutlineInputBorder(

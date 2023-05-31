@@ -43,7 +43,6 @@ class _ReciverListScreenState extends State<ReciverListScreen> {
   final HomeController _homeController = Get.put(HomeController());
   final RelationshipController _relationshipController = Get.put(RelationshipController());
   final ReceiverListController receiverListController = Get.put(ReceiverListController());
-
   final ApiProvider _apiProvider = ApiProvider();
   final GetStorage box = GetStorage();
   final PagingController<int, GetBeneficiaryModel> _pagingController = PagingController(firstPageKey: 0);

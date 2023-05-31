@@ -20,10 +20,6 @@ import 'core/values/app_color.dart';
 
 
 Future<void> main() async {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
   await init();
   runApp(MyApp());
   configLoading();
@@ -70,6 +66,10 @@ Future<void> init() async {
  // FirebaseMessaging.onBackgroundMessage((message) => _pushNotificationService.firebaseMessagingBackgroundHandler(message));
   // Init Local Notification
   _localNotificationService.initialize;
+    SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }
 
 
