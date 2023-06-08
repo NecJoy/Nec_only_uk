@@ -69,6 +69,6 @@ class Routes {
   static const TERMS_AND_CONDITION_SCREEN = "/TermsConditionsScreen";
   static const FORGOT_PASSWORD = "/ForgotPassword";
   static const PRIVACY_PERMISSION = "/PrivacyPermission";
-  static const  SENDER_INFO_SCREEN_CANADA = "/SenderInfoScreenCanada";
+  static const SENDER_INFO_SCREEN_CANADA = "/SenderInfoScreenCanada";
   
 } 
