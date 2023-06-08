@@ -1,9 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:necmoney/core/utils/helpers.dart';
+import 'package:necmoney/core/utils/log.dart';
 import 'package:necmoney/modules/controller/send_money_base_controller.dart';
 import '../../core/values/app_color.dart';
 import '../../routes/routes.dart';
@@ -21,13 +20,11 @@ class SendMoneyBaseLayoutScreen extends StatefulWidget {
   @override
   State<SendMoneyBaseLayoutScreen> createState() => _SendMoneyBaseLayoutScreenState();
 }
-  
 class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
   final SendMoneyController _sendMoneyController = Get.put(SendMoneyController());
   final SendMoneyBaseController _sendMoneyBaseController = Get.put(SendMoneyBaseController());
   final box = GetStorage();
   var currentIndex = 1;
-
   List<Widget> _newRecevierTransaction = [
     PaymentTypeScreen(),
     PaymentTypeServiceScreen(),
@@ -43,8 +40,10 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
     UploadDocumnetScreen(),
   ];
 
- double  calculateProgreessValue( double  pagesLength) {
+  double  calculateProgreessValue( double  pagesLength) {
     var progressValue = currentIndex / pagesLength;
+    Logger(key: "ProgressValue", value: progressValue);
+    Logger(key: "ProgressValue", value: progressValue);
     return progressValue;
   }
 
@@ -55,7 +54,7 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
         if (_sendMoneyBaseController.pageController.offset == 0.0) {
           if(box.read(Keys.transaction) == Strings.oldRecevierTransaction){
             if(_sendMoneyController.reciverEditpay == true){
-                    Get.toNamed(Routes.BASE_NAV_LAYOUT);
+              Get.toNamed(Routes.BASE_NAV_LAYOUT);
             }else{
               Get.back();
             }
@@ -88,7 +87,7 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
                 if(_sendMoneyController.reciverEditpay == true){
                   Get.toNamed(Routes.BASE_NAV_LAYOUT);
                 }else{
-                   Get.back();
+                  Get.back();
                 }
               }else {
                 Get.toNamed(Routes.BASE_NAV_LAYOUT);
@@ -99,10 +98,10 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
               }else if(box.read(Keys.transaction) == Strings.oldRecevierTransaction && currentIndex == 1 || currentIndex == 4){
                 Get.toNamed(Routes.BASE_NAV_LAYOUT);
               }else{
-                _sendMoneyBaseController.pageController.previousPage(
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeInOut,
-              );
+                 _sendMoneyBaseController.pageController.previousPage(
+                 duration: const Duration(milliseconds: 400),
+                 curve: Curves.easeInOut,
+               );
               }
             }
           },
