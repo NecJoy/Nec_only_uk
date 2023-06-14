@@ -42,7 +42,8 @@ Future<void> init() async {
   _pushNotificationService.backGroundHandeler;
   // Init pdf dounloader
   await FlutterDownloader.initialize(
-    debug: DownloadService.debug 
+    debug: DownloadService.debug, 
+    ignoreSsl: DownloadService.ignoreSsl
     // set false to disable printing logs to console
   );
   FlutterDownloader.registerCallback(DownloadService.downloadCallback);

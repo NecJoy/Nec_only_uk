@@ -74,22 +74,10 @@ class  GetRemitterInfo extends GetxController {
       url: Strings.getRemitter + "RemitterID=$remitterId"
     ).then((data){
     if(data != null){
-        print("Data $data");
         GetRemitterModel getRemitterModel = GetRemitterModel.fromJson(data["remitter"]);
         box.write(Keys.documnetTypeName , getRemitterModel.docName.toString());
         box.write(Keys.remCounty, getRemitterModel.countryName.toString());
         _senderDetialsController.documentTypeName.value = getRemitterModel.docName.toString();
-        // box.write(Keys.remAddress, getRemitterModel.fullAddress.toString());
-        // box.write(Keys.remCity, getRemitterModel.cityCode.toString());
-        // box.write(Keys.remZipCode, getRemitterModel.zipCode.toString());
-        // box.write(Keys.remName, getRemitterModel.name.toString());
-        // box.write(Keys.remSurname, getRemitterModel.surname.toString());
-        // box.write(Keys.remitterPhoneNumber, getRemitterModel.phoneNo.toString());
-        //For repayment
-        // if(isRePayment){
-        //   //amount
-        //   _saveRemittanceController.payWithGateway(trackingId);
-        // }
       }
     });
   }

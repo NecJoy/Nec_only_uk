@@ -48,7 +48,7 @@ static dengerAlert({String? message, String? title, SnackPosition? snackPosition
           children: [
             Icon(Icons.error, color: AppColor.dangerColor,),
             SizedBox(width: 6,),
-            Text("Alarted",style: TextStyle(fontWeight: FontWeight.bold, color: AppColor.kBlackColor, fontSize: 18),),
+            Text("Alert",style: TextStyle(fontWeight: FontWeight.bold, color: AppColor.kBlackColor, fontSize: 18),),
           ],
         ),
         messageText: Text("$message",style: TextStyle(fontWeight: FontWeight.normal, color: AppColor.kBlackColor.withOpacity(0.6)),),
@@ -57,6 +57,7 @@ static dengerAlert({String? message, String? title, SnackPosition? snackPosition
         snackPosition: snackPosition ?? SnackPosition.TOP,
         margin: EdgeInsets.only(left: 2),
         snackStyle: SnackStyle.FLOATING,
+        duration: Duration(seconds: 5),
         overlayColor: AppColor.kGreenColor.withOpacity(0.1),
         overlayBlur: 0.1,
         forwardAnimationCurve: Curves.bounceInOut,
@@ -108,6 +109,14 @@ static String generateReciptLink(String? data){
   var link = Strings.report + docId + "_" + remitterId + ".pdf";
   return link;
 }
+
+static showAlartMessageWidget({required String msg}) {
+    return Fluttertoast.showToast(
+      msg: msg.toString(),
+      backgroundColor: AppColor.kGreyColor,
+      textColor: AppColor.kBlackColor,
+    );
+  }
 
 
 static Future<void> launchURL(url) async {

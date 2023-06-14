@@ -105,10 +105,7 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
               }
             }
           },
-          child: Icon(
-            Icons.close,
-            size: 30,
-            color: AppColor.kWhiteColor,
+          child: Icon( currentIndex == 0 ? Icons.close : Icons.arrow_back_ios,size: 30,color: AppColor.kWhiteColor,
           )),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

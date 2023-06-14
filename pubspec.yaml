@@ -4,8 +4,8 @@ description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
  #1.1.4+9 android
  #ios 6.1+4 now
-
-version: 1.1.14+19
+# update version
+version: 1.1.15+24
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
@@ -42,10 +42,10 @@ dependencies:
   file_picker: ^5.2.2
   app_settings: ^4.1.1
   flutter_easyloading: ^3.0.3
-  url_launcher: ^6.0.20
+  url_launcher: ^6.1.11
   package_info_plus: ^1.4.0
   fluttertoast: ^8.0.9
-  open_filex: ^4.3.1
+  # open_filex: ^4.3.1
   flutter_typeahead: ^3.2.7
   textfield_search: ^0.10.0
   flutter_native_image: ^0.0.6+1
@@ -61,7 +61,8 @@ dependencies:
   whatsapp_unilink: ^2.0.2
   image_picker_ios: ^0.8.5+6
   firebase_remote_config: ^3.0.6
-  flutter_downloader: ^1.9.1
+  # flutter_downloader: ^1.9.1
+  flutter_downloader: ^1.10.4
   open_settings: ^2.0.2
   shimmer: ^2.0.0
   cached_network_image: ^3.2.3
@@ -73,6 +74,7 @@ dependencies:
   infinite_scroll_pagination: ^3.2.0
   connectivity_plus: ^4.0.0
   substring_highlight: ^1.0.33
+  open_file: ^3.3.2
   
 
   
