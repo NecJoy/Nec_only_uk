@@ -75,6 +75,7 @@ dependencies:
   connectivity_plus: ^4.0.0
   substring_highlight: ^1.0.33
   open_file: ^3.3.2
+  animated_text_kit: ^4.2.2
   
 
   

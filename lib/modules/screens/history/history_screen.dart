@@ -312,11 +312,6 @@ class HistoryScreen extends StatelessWidget {
                                                           var remitterId = remittanceNo[1];
                                                           pdfDownloadController.indexNumber.value = index.toString();
                                                           pdfDownloadController.progressValue.value = "0";
-                                                          // if(Platform.isAndroid){
-                                                          //   await DownloadService.requestDownload(link: Strings.report + docId + "_" + remitterId + ".pdf");
-                                                          // }else {
-                                                            
-                                                          // }
                                                           var fileName = docId + "_" + remitterId + ".pdf";
                                                            pdfDownloadController.downLoadPdf(fileName, "https://mapp.necmoney.com/Reports/$fileName");
                                                         },
