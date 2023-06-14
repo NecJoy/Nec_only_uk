@@ -194,54 +194,8 @@ Future postData(
 
 
 
-// Future<dynamic> post(
-//   { 
-//     required String baseUrl, 
-//     required String url, 
-//     required Map<String, dynamic> data, 
-//     String? token
-//   })async{
-  
-//   try{
-//     EasyLoading.show( status: 'Loading...', maskType: EasyLoadingMaskType.black);
-//     var response = await client.post(Uri.parse("$baseUrl/$url"), 
-//       headers: <String, String>{
-//         'Content-Type': 'application/json; charset=UTF-8',
-//         'X-API-Version': '2',
-//         'Accept': 'application/json',
-//         'RequestVerificationToken': box.read(Keys.token) != null ? box.read(Keys.token) : "null",
-//       }, 
-//       body: jsonEncode(data)
-//     );
 
-//     EasyLoading.dismiss();
-//     if(response.statusCode == 200){
-//       sessionTimer.apiRequest.value++;
-//       if(sessionTimer.apiRequest.value > 1){
-//         sessionTimer.timer!.cancel();
-//       }
-//       sessionTimer.startTimer(countvalue: 1200);
-//     }
-//     var _jsonString = {
-//       "body": jsonDecode(response.body),
-//       "statusCode": response.statusCode,
-//       "message": jsonDecode(response.body)['returnMessage']
-//     };
-//     return _jsonString;
-//   } on SocketException catch (_) {
-//     EasyLoading.dismiss();
-//     Helpers.dengerAlert(title: "socketException".tr, message: "noInternetConnection".tr);
-//   } on HttpException catch (error) {
-//     EasyLoading.dismiss();
-//     Helpers.dengerAlert(title: "httpException".tr, message: error.message);
-//   } on FormatException catch (error) {
-//     EasyLoading.dismiss();
-//     Helpers.dengerAlert(title: "formatException".tr, message: error.message);
-//   } catch (e) {
-//     EasyLoading.dismiss();
-//     Helpers.dengerAlert(title: "Unknown", message: "Unknown error$e");
-//   }
-// }
+
 
 
 

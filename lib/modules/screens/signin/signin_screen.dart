@@ -125,13 +125,14 @@ class SigninScreen extends StatelessWidget {
                                       final _signInModel = SignInModel(
                                         loginId: _signInController.emailControlller.text,
                                         password: _signInController.passwordController.value.text,
-                                        tryCount: _signInController.tryCount.value +=1,
+                                        tryCount: _signInController.tryCount.value += 1,
                                       );
                                       if(_formKey.currentState!.validate()) {
                                         _formKey.currentState!.save();
                                         box.write(Keys.password, _signInController.passwordController.text);
                                         box.write(Keys.email,  _signInController.emailControlller.text);
                                         _signInController.signIn(signInModel: _signInModel);
+                                        Helpers.keyboardhide();
                                       }
                                     },
                                   ),

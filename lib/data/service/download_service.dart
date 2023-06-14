@@ -6,12 +6,12 @@ import 'dart:isolate';
 import 'dart:ui';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:open_filex/open_filex.dart';
 import 'dart:async';
 
 class DownloadService{
 
   static const debug = true;
+  static const ignoreSsl = true;
 
   static Future<void> requestDownload({required String link}) async {
     if(Platform.isAndroid ){
@@ -25,7 +25,7 @@ class DownloadService{
         saveInPublicStorage: true,
      );
       if(taskId != null){
-        OpenFilex.open("${androidDirectory.path}/${link.split("/").last}}"); //When get api then change dummy.pdf file name
+        //OpenFilex.open("${androidDirectory.path}/${link.split("/").last}}"); //When get api then change dummy.pdf file name
       }
     } else {
       Directory? iosDirectory = await getLibraryDirectory();
@@ -38,17 +38,14 @@ class DownloadService{
         saveInPublicStorage: true,
      );
      if(taskId != null){
-        OpenFilex.open("${iosDirectory.path}/${link.split("/").last}}");//When get api then change dummy.pdf file name
+        // OpenFilex.open("${iosDirectory.path}/${link.split("/").last}}");//When get api then change dummy.pdf file name
       }
     }
   
   }
   
 
-  static void downloadCallback(String id, DownloadTaskStatus status, int progress) {
-    if (debug) {
-      print('Background Isolate Callback: task ($id) is in status ($status) and process ($progress)');
-    }
+  static void  downloadCallback(String id, int status, int progress) {
     final SendPort send = IsolateNameServer.lookupPortByName('downloader_send_port')!;
     send.send([id, status, progress]);
   }

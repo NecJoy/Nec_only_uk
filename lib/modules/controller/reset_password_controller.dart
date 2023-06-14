@@ -21,7 +21,7 @@ class ResetPasswordController extends GetxController{
       if(data != null){
         Helpers.showSnackBar(
           title: "Success",
-          message: "Password was sent too your mobile or email"
+          message: "Password was sent to your  email"
         );
         Future.delayed(Duration(milliseconds: 400)).then((value){
           Get.toNamed(Routes.SIGNIN_SCREEN);

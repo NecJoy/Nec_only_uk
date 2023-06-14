@@ -98,7 +98,7 @@ class SignInController extends GetxController{
               box.write(Keys.remitterId, data["remitterID"]);
               box.write(Keys.countryID, data["countryID"]);
               _homeController.calculateLenght();
-              _exchangeLCIsoCode.getexchangeCode();
+               _exchangeLCIsoCode.getexchangeCode();
                _getRemitterInfo.getRemitterDetailsForPayment(box.read(Keys.remitterId).toString());
               Get.toNamed(Routes.BASE_NAV_LAYOUT);
             }

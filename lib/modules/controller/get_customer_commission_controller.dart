@@ -15,6 +15,7 @@ class GetCustomerComissionController extends GetxController{
   var dealingRate = "".obs;
   final  transactionAmountController = TextEditingController();
   final  receiverAmountController = TextEditingController();
+  final rateLodder = false.obs;
   var fee = "0.0".obs;
   var cardFee = "0.0".obs;
   var totalAomunt = "0.0".obs;
@@ -24,6 +25,7 @@ class GetCustomerComissionController extends GetxController{
   var diplayTotalAmount = "0.0".obs;
   final box = GetStorage();
   Future getCustomerCommission({String? amount, String? countryID, String? currencyID, String? operationDate, String? subCompanyID})async{
+     rateLodder.value = true;
     _apiProvider.getSingleData(
       baseUrl: Strings.baseUrl, 
       url: Strings.getCustomerCommission + "amount=$amount&cardType=VISA&countryID=$countryID&currencyID=$currencyID&operationDate=$operationDate.000Z&subCompanyID=$subCompanyID"
@@ -51,6 +53,7 @@ class GetCustomerComissionController extends GetxController{
           }
         }
       }
+      rateLodder.value = false;
     });
   }
 

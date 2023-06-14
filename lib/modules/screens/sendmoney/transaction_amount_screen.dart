@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
 
 
@@ -36,6 +38,7 @@ class TransactionAmountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.kWhiteColor,
       body: SingleChildScrollView(
         reverse: true,
         child:  Column(
@@ -235,7 +238,13 @@ class TransactionAmountScreen extends StatelessWidget {
                         ),
                         Expanded(
                           flex: 5,
-                          child: Obx(()=> Text(
+                          child: Obx(()=> _getCustomerComissionController.rateLodder.value == true ? Center(
+                            child: LoadingAnimationWidget.flickr(
+                              leftDotColor: AppColor.kYellow, 
+                              rightDotColor: AppColor.kGreenColor, 
+                              size: 20,
+                            ),
+                          ): Text(
                             "${_getCustomerComissionController.diplayTotalAmount.value}" + " ${box.read(Keys.exchangeLCIsoCode)}",
                             textAlign: TextAlign.right,
                                style: TextStyle(

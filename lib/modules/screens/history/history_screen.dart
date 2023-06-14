@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_null_comparison
+// ignore_for_file: unnecessary_null_comparison, unused_element
 
 import 'dart:io';
 
@@ -12,10 +12,10 @@ import 'package:necmoney/core/utils/helpers.dart';
 import 'package:necmoney/core/values/strings.dart';
 import 'package:necmoney/data/service/download_service.dart';
 import 'package:necmoney/modules/controller/home_controller.dart';
+import 'package:necmoney/modules/controller/pdf_download_controller.dart';
 import 'package:necmoney/modules/controller/track_transaction_controller.dart';
 import 'package:necmoney/modules/controller/transaction_history_controller.dart';
 import 'package:necmoney/routes/routes.dart';
-
 import '../../../core/utils/keys.dart';
 import '../../../widgets/date_picker.dart';
 import '../../../core/values/app_color.dart';
@@ -29,6 +29,7 @@ class HistoryScreen extends StatelessWidget {
   final TrackTransactionController _trackTransactionController = Get.put(TrackTransactionController());
   final SaveRemittanceController _saveRemittanceController = Get.put(SaveRemittanceController());
   final HomeController _homeController = Get.put(HomeController());
+  final PdfDownloadController pdfDownloadController = Get.put(PdfDownloadController());
   final box = GetStorage();
   @override
   Widget build(BuildContext context) {
@@ -61,8 +62,7 @@ class HistoryScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Obx(()=>
-                     DatePicked(
+                  Obx(()=>DatePicked(
                       level: "fromDate".tr,
                       onTap: (){
                         DatePicker.datePiker(
@@ -97,8 +97,7 @@ class HistoryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Obx(()=>
-                     DatePicked(
+                  Obx(()=>DatePicked(
                       level: "toDate".tr,
                       onTap: (){
                         DatePicker.datePiker(
@@ -159,7 +158,8 @@ class HistoryScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         itemCount: _transactionHistoryController.remittance.length,
                         shrinkWrap: true,
-                        itemBuilder: (context,index){
+                        itemBuilder: ( BuildContext context, index){
+                        var data = _transactionHistoryController.remittance[index];
                         return AnimationConfiguration.staggeredList(
                           position: index,
                           duration: const Duration(milliseconds: 600),
@@ -196,7 +196,7 @@ class HistoryScreen extends StatelessWidget {
                                                         SizedBox(width: 8,),
                                                         Expanded(
                                                           child: Text(
-                                                            _transactionHistoryController.remittance[index].beneficiaryName.toString() + " " + _transactionHistoryController.remittance[index].beneficiarySurname.toString(),
+                                                            data.beneficiaryName.toString() + " " + data.beneficiarySurname.toString(),
                                                             style: Theme.of(context).textTheme.titleMedium,
                                                             overflow: TextOverflow.ellipsis,
                                                             maxLines: 1,
@@ -211,13 +211,13 @@ class HistoryScreen extends StatelessWidget {
                                                     children: [
                                                       IconButton(
                                                         onPressed: (){
-                                                          Get.toNamed(Routes.CORRECTIONTRANSACTION,  arguments: _transactionHistoryController.remittance[index].ttid);
+                                                          Get.toNamed(Routes.CORRECTIONTRANSACTION,  arguments: data.ttid);
                                                         }, 
                                                         icon: Icon(Icons.edit, color: AppColor.kPrimaryColor,)
                                                       ),
                                                       IconButton(
                                                         onPressed: (){
-                                                          Get.toNamed(Routes.CANCELTRANSACTION, arguments: _transactionHistoryController.remittance[index].ttid);
+                                                          Get.toNamed(Routes.CANCELTRANSACTION, arguments: data.ttid);
                                                         }, 
                                                         icon: Icon(Icons.cancel, color: AppColor.kSecondaryColor,)
                                                       ),
@@ -238,13 +238,13 @@ class HistoryScreen extends StatelessWidget {
                                                 children: [
                                                   Text("Issue date: ", style: Theme.of(context).textTheme.titleSmall),
                                                   Text(
-                                                    '${Helpers.dateTimeFormet(DateTime.parse("${_transactionHistoryController.remittance[index].issueDate}"))}',textAlign: TextAlign.start,
+                                                    '${Helpers.dateTimeFormet(DateTime.parse("${data.issueDate}"))}',textAlign: TextAlign.start,
                                                     style: Theme.of(context).textTheme.titleSmall,
                                                   ),
                                                 ],
                                               ),
-                                              _transactionHistoryController.remittance[index].cardType.toString().toUpperCase() == "VISA"  ? SvgPicture.asset("assets/icon/visa.svg") : 
-                                              _transactionHistoryController.remittance[index].cardType.toString().toUpperCase() == "MASTERCARD"  ? SvgPicture.asset("assets/icon/mastercard.svg") : SizedBox(),
+                                              data.cardType.toString().toUpperCase() == "VISA"  ? SvgPicture.asset("assets/icon/visa.svg") : 
+                                              data.cardType.toString().toUpperCase() == "MASTERCARD"  ? SvgPicture.asset("assets/icon/mastercard.svg") : SizedBox(),
                                             ],
                                           ),
                                           SizedBox(
@@ -263,20 +263,20 @@ class HistoryScreen extends StatelessWidget {
                                               children: [
                                                 InkWell(
                                                   onTap: (){
-                                                    Helpers.clipBoard(data: _transactionHistoryController.remittance[index].remittanceNo.toString());
+                                                    Helpers.clipBoard(data: data.remittanceNo.toString());
                                                     _trackTransactionController.trackTransaction(
-                                                      _transactionHistoryController.remittance[index].remittanceNo.toString()
+                                                      data.remittanceNo.toString()
                                                     );
-                                                    Get.toNamed(Routes.TRACK_TRANSACTION, arguments: _transactionHistoryController.remittance[index].remittanceNo);
+                                                    Get.toNamed(Routes.TRACK_TRANSACTION, arguments: data.remittanceNo);
                                                   },
                                                   child: Text(
-                                                    _transactionHistoryController.remittance[index].remittanceNo.toString(),
+                                                    data.remittanceNo.toString(),
                                                     style: TextStyle(color: AppColor.kBlueColor, fontSize: 14)
                                                   ),
                                                 ),
                                                 Text(" || ", style: TextStyle(color: AppColor.kPrimaryColor,fontWeight: FontWeight.bold),),
                                                 Text(
-                                                  "${_transactionHistoryController.remittance[index].beneCurrencyCode} ${_transactionHistoryController.remittance[index].beneAmount}" ,
+                                                  "${data.beneCurrencyCode} ${data.beneAmount}" ,
                                                   style: TextStyle(color: AppColor.kSecondaryColor),
                                                 ),
                                               ],
@@ -296,7 +296,7 @@ class HistoryScreen extends StatelessWidget {
                                                       Text("transactionStatus".tr,
                                                          style: Theme.of(context).textTheme.titleSmall,
                                                       ),
-                                                      Text(_transactionHistoryController.remittance[index].stPayRefStatus.toString(),
+                                                      Text(data.stPayRefStatus.toString(),
                                                         style: Theme.of(context).textTheme.titleSmall,
                                                       ),
                                                     ],
@@ -307,27 +307,32 @@ class HistoryScreen extends StatelessWidget {
                                                     children: [
                                                       InkWell(
                                                         onTap: ()async{
-                                                          var remittanceNo = _transactionHistoryController.remittance[index].remittanceNo.toString().split("/");
+                                                          var remittanceNo = data.remittanceNo.toString().split("/");
                                                           var docId = remittanceNo[0];
                                                           var remitterId = remittanceNo[1];
-                                                          if(Platform.isAndroid){
-                                                            await DownloadService.requestDownload(link: Strings.report + docId + "_" + remitterId + ".pdf");
-                                                          }else {
-                                                            Helpers.launchURL(Strings.report + docId + "_" + remitterId + ".pdf");
-                                                          }
+                                                          pdfDownloadController.indexNumber.value = index.toString();
+                                                          pdfDownloadController.progressValue.value = "0";
+                                                          // if(Platform.isAndroid){
+                                                          //   await DownloadService.requestDownload(link: Strings.report + docId + "_" + remitterId + ".pdf");
+                                                          // }else {
+                                                            
+                                                          // }
+                                                          var fileName = docId + "_" + remitterId + ".pdf";
+                                                           pdfDownloadController.downLoadPdf(fileName, "https://mapp.necmoney.com/Reports/$fileName");
                                                         },
-                                                        child: Padding(
-                                                          padding: const EdgeInsets.all(8.0),
-                                                          child: SvgPicture.asset("assets/icon/download_icons.svg",width: 20,color: AppColor.kGreenColor),
+                                                        child: Obx(()=>pdfDownloadController.downloadStart.value == true && pdfDownloadController.indexNumber.value == index.toString() ? Text("${pdfDownloadController.progressValue.value}%")   : Padding(
+                                                            padding:  EdgeInsets.all(8.0),
+                                                            child:  SvgPicture.asset("assets/icon/download_icons.svg",width: 20,color: AppColor.kGreenColor),
+                                                          ),
                                                         ),
                                                       ),
                                                       SizedBox(width: 12),
-                                                      _transactionHistoryController.remittance[index].lastStatus.toString().toUpperCase() != "Cancelled".toUpperCase() ? (_transactionHistoryController.remittance[index].cardType.toString().toUpperCase() == "VISA" 
-                                                     || _transactionHistoryController.remittance[index].cardType.toString().toUpperCase() == "MASTERCARD") 
-                                                     && _transactionHistoryController.remittance[index].errorCode.toString() == "-999"? InkWell(
+                                                      data.lastStatus.toString().toUpperCase() != "Cancelled".toUpperCase() ? (data.cardType.toString().toUpperCase() == "VISA" 
+                                                     || data.cardType.toString().toUpperCase() == "MASTERCARD") 
+                                                     && data.errorCode.toString() == "-999"? InkWell(
                                                         onTap: (){
-                                                          box.write(Keys.remittanceNo, _transactionHistoryController.remittance[index].remittanceNo.toString());
-                                                          box.write(Keys.displayAmount,  double.parse(_transactionHistoryController.remittance[index].equiAmount.toString()) + double.parse(_transactionHistoryController.remittance[index].equiCommission.toString()));
+                                                          box.write(Keys.remittanceNo, data.remittanceNo.toString());
+                                                          box.write(Keys.displayAmount,  double.parse(data.equiAmount.toString()) + double.parse(data.equiCommission.toString()));
                                                           _saveRemittanceController.payWithGateway();
                                                         }, 
                                                         child: Padding(
