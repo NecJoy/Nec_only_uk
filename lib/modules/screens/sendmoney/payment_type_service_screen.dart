@@ -167,7 +167,8 @@ class PaymentTypeServiceScreen extends StatelessWidget {
                               return null;
                             },
                           ),
-                      )),
+                        )
+                      ),
                     ),
                     if (box.read(Keys.benePayeeModeID) == Keys.accountPayeeID  || box.read(Keys.benePayeeModeID) == Keys.mobileWalletID)...[
                         SizedBox(height: 16,),

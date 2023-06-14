@@ -9,14 +9,15 @@ import '../../../core/utils/keys.dart';
 import '../../../core/values/app_color.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/custom_button.dart';
-import '../../../data/service/download_service.dart';
 import '../../../data/service/share_service.dart';
+import '../../controller/pdf_download_controller.dart';
 
 
 class PaymentSuccessfulScreen  extends StatelessWidget {
   PaymentSuccessfulScreen ({Key? key}) : super(key: key);
   final box = GetStorage();
   final SaveRemittanceController _saveRemittanceController = Get.put(SaveRemittanceController());
+  final PdfDownloadController pdfDownloadController = Get.put(PdfDownloadController());
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -79,16 +80,23 @@ class PaymentSuccessfulScreen  extends StatelessWidget {
                     SizedBox(height: 32),
                     box.read(Keys.paymentModeName).toString().toUpperCase() == "BNKXFR".toUpperCase()  ? Row(
                       children: [
-                        CustomButton(
-                          buttonLevel: "downloadReceipt".tr,
-                          onPressed: () async{
-                            if(Platform.isAndroid){
-                              await DownloadService.requestDownload(link: Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
-                            }else{
-                              Helpers.launchURL(Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
-                            }  
-                          },
-                          color: AppColor.kPrimaryColor,
+                        Obx(()=>CustomButton(
+                            buttonLevel: pdfDownloadController.downloadStart.value == true ? "Downloading.." : "downloadReceipt".tr,
+                            onPressed: () async{
+                              var remittanceNo = box.read(Keys.remittanceNo).toString().split("/");
+                              var docId = remittanceNo[0];
+                              var remitterId = remittanceNo[1];
+                              pdfDownloadController.progressValue.value = "0";
+                              var fileName = docId + "_" + remitterId + ".pdf";
+                              pdfDownloadController.downLoadPdf(fileName, "https://mapp.necmoney.com/Reports/$fileName");
+                              // if(Platform.isAndroid){
+                              //   await DownloadService.requestDownload(link: Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
+                              // }else{
+                              //   Helpers.launchURL(Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
+                              // }  
+                            },
+                            color: AppColor.kPrimaryColor,
+                          ),
                         ),
                         SizedBox(width: 16,),
                         CustomButton(

@@ -1,4 +1,5 @@
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -205,23 +206,20 @@ class TransactionAmountScreen extends StatelessWidget {
                     SizedBox(
                       height: 16,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Text('exchangeRate'.tr,
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('exchangeRate'.tr,
                             style: TextStyle(
                               color: AppColor.kBlackColor,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8,),
-                        Expanded(
-                          flex: 4,
-                          child: Row(
+                         // SizedBox(width: 8,),
+                          Row(
                             children: [
                               Text('1  ${box.read(Keys.exchangeLCIsoCode)} = ',style: Theme.of(context).textTheme.titleSmall),
                               Obx(()=> Text(
@@ -235,27 +233,45 @@ class TransactionAmountScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Obx(()=> _getCustomerComissionController.rateLodder.value == true ? Center(
+                          Obx(()=> _getCustomerComissionController.rateLodder.value == true ? Center(
                             child: LoadingAnimationWidget.flickr(
                               leftDotColor: AppColor.kYellow, 
                               rightDotColor: AppColor.kGreenColor, 
                               size: 20,
                             ),
-                          ): Text(
-                            "${_getCustomerComissionController.diplayTotalAmount.value}" + " ${box.read(Keys.exchangeLCIsoCode)}",
-                            textAlign: TextAlign.right,
-                               style: TextStyle(
-                                color: AppColor.kBlackColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ): 
+                          // Text(
+                          //   "${_getCustomerComissionController.diplayTotalAmount.value}" + " ${box.read(Keys.exchangeLCIsoCode)}",
+                          //   textAlign: TextAlign.right,
+                          //      style: TextStyle(
+                          //       color: AppColor.kBlackColor,
+                          //       fontSize: 15,
+                          //       fontWeight: FontWeight.bold,
+                          //     ),
+                          //   ),
+                          AnimatedTextKit(
+                              animatedTexts: [
+                                TypewriterAnimatedText(
+                                  "${_getCustomerComissionController.diplayTotalAmount.value}" + " ${box.read(Keys.exchangeLCIsoCode)}",
+                                  textStyle: const TextStyle(
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  cursor: "..",
+                                  curve: Curves.easeIn,
+                                  speed: const Duration(milliseconds: 50),
+                                ),
+                              ],
+                              
+                              totalRepeatCount: 1,
+                              pause: const Duration(milliseconds: 50),
+                              displayFullTextOnTap: true,
+                              stopPauseOnTap: true,
+                              repeatForever: false,
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     SizedBox(height: 16),
                     Row(
