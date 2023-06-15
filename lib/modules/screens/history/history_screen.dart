@@ -1,7 +1,5 @@
 // ignore_for_file: unnecessary_null_comparison, unused_element
 
-import 'dart:io';
-
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -9,8 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:necmoney/core/utils/helpers.dart';
-import 'package:necmoney/core/values/strings.dart';
-import 'package:necmoney/data/service/download_service.dart';
 import 'package:necmoney/modules/controller/home_controller.dart';
 import 'package:necmoney/modules/controller/pdf_download_controller.dart';
 import 'package:necmoney/modules/controller/track_transaction_controller.dart';
@@ -313,7 +309,7 @@ class HistoryScreen extends StatelessWidget {
                                                           pdfDownloadController.indexNumber.value = index.toString();
                                                           pdfDownloadController.progressValue.value = "0";
                                                           var fileName = docId + "_" + remitterId + ".pdf";
-                                                           pdfDownloadController.downLoadPdf(fileName, "https://mapp.necmoney.com/Reports/$fileName");
+                                                           pdfDownloadController.downLoadPdf(fileName, "$fileName");
                                                         },
                                                         child: Obx(()=>pdfDownloadController.downloadStart.value == true && pdfDownloadController.indexNumber.value == index.toString() ? Text("${pdfDownloadController.progressValue.value}%")   : Padding(
                                                             padding:  EdgeInsets.all(8.0),

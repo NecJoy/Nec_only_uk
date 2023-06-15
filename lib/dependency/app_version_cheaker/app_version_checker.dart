@@ -54,7 +54,7 @@ class AppVersionChecker {
     var uri = Uri.https("itunes.apple.com", "/lookup", {"bundleId": packageName});
     try {
       final response = await http.get(uri);
-      Logger(key: "APPVersion Url ", value: response.request);
+      //Logger(key: "APPVersion Url ", value: response.request);
       if (response.statusCode != 200) {
         errorMsg =
             "Can't find an app in the Apple Store with the id: $packageName";

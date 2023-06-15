@@ -216,7 +216,7 @@ class PaymentTypeServiceScreen extends StatelessWidget {
                                   );
                                   cashClear();
                                   box.write(Keys.beneBankID, subcompanyModel.bankId.toString());
-                                  Logger(key: "BankId", value: subcompanyModel.bankId.toString());
+                                  //Logger(key: "BankId", value: subcompanyModel.bankId.toString());
                                   if(box.read(Keys.benePayeeModeID) == Keys.mobileWalletID) {
                                   _sendMoneyController.autoBankGet(
                                       beneBankID: box.read(Keys.beneBankID), 

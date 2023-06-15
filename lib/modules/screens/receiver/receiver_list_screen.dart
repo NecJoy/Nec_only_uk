@@ -74,7 +74,7 @@ class _ReciverListScreenState extends State<ReciverListScreen> {
         _pagingController.appendPage(_data.map((e) => GetBeneficiaryModel.fromJson(e)).toList(), nextPageKey);
       }
     }catch(error){
-      Logger(key: "Error", value: error);
+     // Logger(key: "Error", value: error);
     }
 
   }
@@ -438,7 +438,7 @@ class _ReciverListScreenState extends State<ReciverListScreen> {
       box.write(Keys.subCompanyBranchID, _data.subCompanyBranchId.toString());
       box.write(Keys.benePayeeModeID, _data.modeId.toString());
       box.write(Keys.beneBankID, _data.bankId);
-      Logger(key: "beneBankId", value: _data.bankId);
+      //Logger(key: "beneBankId", value: _data.bankId);
       _sendMoneyController.getCountryCityWithBank(
             countryId: _data.countryId.toString(),
             currencyID: _data.currencyId.toString(),

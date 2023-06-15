@@ -319,19 +319,20 @@ class TransactionAmountScreen extends StatelessWidget {
                     SizedBox(height: 32),
                     Row(
                       children: [
-                        CustomButton(
-                          buttonLevel: "continue".tr,
-                          onPressed: (){
-                            if(double.parse("${_getCustomerComissionController.diplayTotalAmount.value}") > 0 && _getCustomerComissionController.transactionAmountController.text.isNotEmpty && _getCustomerComissionController.receiverAmountController.text.isNotEmpty){
-                              Helpers.keyboardhide();
-                              _sendMoneyBaseController.NavigateSteep();
-                              _sendMoneyController.purposeOfIssueName.value = "";
-                              _sendMoneyController.paymentModeCardName.value = "";
-                            }else{
-                              Helpers.dengerAlert(message: "pleaseEnterYourTransactionAmount".tr , title:  "warning".tr);
-                            }
-                          },
-                          color: AppColor.kPrimaryColor,
+                        Obx(()=>CustomButton(
+                            buttonLevel: "continue".tr,
+                            onPressed:  _getCustomerComissionController.rateLodder.value == true ? null : (){
+                              if(double.parse("${_getCustomerComissionController.diplayTotalAmount.value}") > 0 && _getCustomerComissionController.transactionAmountController.text.isNotEmpty && _getCustomerComissionController.receiverAmountController.text.isNotEmpty){
+                                Helpers.keyboardhide();
+                                _sendMoneyBaseController.NavigateSteep();
+                                _sendMoneyController.purposeOfIssueName.value = "";
+                                _sendMoneyController.paymentModeCardName.value = "";
+                              }else{
+                                Helpers.dengerAlert(message: "pleaseEnterYourTransactionAmount".tr , title:  "warning".tr);
+                              }
+                            },
+                            color: AppColor.kPrimaryColor,
+                          ),
                         ),
                       ],
                     ),

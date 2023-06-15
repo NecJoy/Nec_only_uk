@@ -44,7 +44,7 @@ Future getPaymentMode()async{
       paymentType["${r[0]["description"]}"] = "${r[0]["modeID"]}";
   }
 
-  Logger(key: "paymentType", value: paymentType.toString());
+ // Logger(key: "paymentType", value: paymentType.toString());
 }
 
 

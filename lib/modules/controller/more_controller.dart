@@ -19,7 +19,7 @@ class MoreController extends GetxController {
         box.write(Keys.profileImage, profileImage.value);
       }
     }catch(err){
-      Logger(key: "ImagePath", value: err);
+      //Logger(key: "ImagePath", value: err);
     }
   }
 
@@ -31,7 +31,7 @@ class MoreController extends GetxController {
         box.write(Keys.profileImage, profileImage.value);
       }
     }catch(err){
-      Logger(key: "ImagePath", value: err);
+     // Logger(key: "ImagePath", value: err);
     }
   }
 }

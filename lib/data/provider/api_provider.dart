@@ -9,9 +9,7 @@ import 'package:necmoney/core/utils/keys.dart';
 import 'package:necmoney/core/values/strings.dart';
 import 'package:necmoney/modules/controller/send_money_base_controller.dart';
 import 'package:necmoney/modules/controller/upload_document_controller.dart';
-
 import '../../core/utils/helpers.dart';
-import '../../core/utils/log.dart';
 import '../../core/utils/session_timer.dart';
 import '../../routes/routes.dart';
 
@@ -37,7 +35,7 @@ Future<dynamic> getData(
         'RequestVerificationToken': box.read(Keys.token) != null ? box.read(Keys.token) : "null",
       },
     );
-  Logger(key: "Getdata", value: response.request);
+  //Logger(key: "Getdata", value: response.request);
    EasyLoading.dismiss();
     if(response.statusCode == 200){
       var jsonString = jsonDecode(response.body);
@@ -59,7 +57,7 @@ Future<dynamic> getData(
     EasyLoading.dismiss();
   } catch (e) {
     EasyLoading.dismiss();
-    Logger(key: "Unknown", value: "Unknown error $e");
+    //Logger(key: "Unknown", value: "Unknown error $e");
   }
   return null;
 }
@@ -77,7 +75,7 @@ Future getSingleData(
         'RequestVerificationToken': box.read(Keys.token) != null ? box.read(Keys.token) : "null",
       },
     );
-    Logger(key: "responce", value: response.request);
+    //Logger(key: "responce", value: response.request);
     if(response.statusCode == 200){
       var jsonString = jsonDecode(response.body);
       return jsonString;
@@ -100,7 +98,7 @@ Future getSingleData(
     Helpers.dengerAlert(title: "error".tr, message: error.message);
   } catch (e) {
     EasyLoading.dismiss();
-    Logger(key: "Unknown", value: "Unknown error$e");
+    //Logger(key: "Unknown", value: "Unknown error$e");
   }
 
 }
@@ -127,7 +125,7 @@ Future postData(
       }, 
       body: jsonEncode(data)
     );
-
+   // Logger(key: "response.request", value: response.request);
     EasyLoading.dismiss();
     if(response.statusCode == 200){
       var jsonString = jsonDecode(response.body);
@@ -155,7 +153,7 @@ Future postData(
           message: "yourActivationCodeisIncorrect".tr
         );
       }else if(jsonDecode(response.body)['returnMessage'].toString().toLowerCase().contains("Document is not uploaded for this remitter. Upload document first, then try again.".toLowerCase())) {
-        Logger(key: "Data", value: "One");
+       // Logger(key: "Data", value: "One");
         if(box.read(Keys.transaction) == Strings.oldRecevierTransaction ){
           _addNewDocumentController.newDocument.value = false;
            _sendMoneyBaseController.pageController.jumpToPage(2);
@@ -237,7 +235,7 @@ Future updateData(
     Helpers.dengerAlert(title: "error".tr, message: error.message);
   } catch (e) {
     EasyLoading.dismiss();
-    Logger(key: "Unknown", value: "Unknown error$e");
+    //Logger(key: "Unknown", value: "Unknown error$e");
   }
 
 }
@@ -273,7 +271,7 @@ Future deleteData(
     Helpers.dengerAlert(title: "error".tr, message: error.message);
   } catch (e) {
     EasyLoading.dismiss();
-    Logger(key: "Unknown", value: "Unknown error$e");
+    //Logger(key: "Unknown", value: "Unknown error$e");
   }
 
 }

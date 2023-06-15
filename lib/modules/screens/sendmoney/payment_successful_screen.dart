@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -88,12 +88,7 @@ class PaymentSuccessfulScreen  extends StatelessWidget {
                               var remitterId = remittanceNo[1];
                               pdfDownloadController.progressValue.value = "0";
                               var fileName = docId + "_" + remitterId + ".pdf";
-                              pdfDownloadController.downLoadPdf(fileName, "https://mapp.necmoney.com/Reports/$fileName");
-                              // if(Platform.isAndroid){
-                              //   await DownloadService.requestDownload(link: Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
-                              // }else{
-                              //   Helpers.launchURL(Helpers.generateReciptLink(box.read(Keys.remittanceNo).toString()));
-                              // }  
+                              pdfDownloadController.downLoadPdf(fileName, "$fileName"); 
                             },
                             color: AppColor.kPrimaryColor,
                           ),

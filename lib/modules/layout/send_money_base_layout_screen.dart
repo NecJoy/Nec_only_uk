@@ -42,8 +42,8 @@ class _SendMoneyBaseLayoutScreenState extends State<SendMoneyBaseLayoutScreen> {
 
   double  calculateProgreessValue( double  pagesLength) {
     var progressValue = currentIndex / pagesLength;
-    Logger(key: "ProgressValue", value: progressValue);
-    Logger(key: "ProgressValue", value: progressValue);
+    // Logger(key: "ProgressValue", value: progressValue);
+    // Logger(key: "ProgressValue", value: progressValue);
     return progressValue;
   }
 

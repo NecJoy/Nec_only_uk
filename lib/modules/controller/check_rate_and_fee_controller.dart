@@ -85,7 +85,7 @@ class CheckRateFeeController extends GetxController{
               });
           }
         }
-        Logger(key: "Customer commission", value: getCustomerCommissionModel.toJson());
+       // Logger(key: "Customer commission", value: getCustomerCommissionModel.toJson());
       }
     });
   }

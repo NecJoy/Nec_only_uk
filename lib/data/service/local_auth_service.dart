@@ -29,7 +29,7 @@ class LocalAuthService {
     try {
       return await _auth.getAvailableBiometrics();
     } on PlatformException catch (err) {
-      Logger(key: "Get biometric type", value: err);
+     // Logger(key: "Get biometric type", value: err);
       return <BiometricType>[];
     }
   }
@@ -37,7 +37,7 @@ class LocalAuthService {
   Future<bool> authenticateWithBiometrics() async {
     final isAvailable = await hasBiometrics();
     bool authenticated = false;
-    Logger(key: "Device feature Availablity", value: isAvailable);
+    //Logger(key: "Device feature Availablity", value: isAvailable);
     if (!isAvailable){
       Get.snackbar("Local authenticate", "Sorry! This feature is not available in your device");
      return false;
@@ -62,7 +62,7 @@ class LocalAuthService {
 
     } on PlatformException catch (e) {
       if (e.code == auth_error.notAvailable || e.code == auth_error.notEnrolled) {
-        Logger(key: "local auth error", value: e.code);
+        //Logger(key: "local auth error", value: e.code);
         OpenSettings.openMainSetting();
       }
       return false;

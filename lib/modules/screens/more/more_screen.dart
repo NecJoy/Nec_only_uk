@@ -181,9 +181,9 @@ class MoreScreen extends StatelessWidget {
                     ListTile(
                       onTap: () {
                         if(box.read(Keys.remitterId) != null){
-                          //_getRemitterInfo.getRemitterDetailsForPayment(box.read(Keys.remitterId).toString());
+                           _getRemitterInfo.getRemitterDetailsForPayment(box.read(Keys.remitterId).toString());
                           _addNewDocumentController.newDocument.value = true;
-                          _addNewDocumentController.documentTypeController.text = box.read(Keys.documnetTypeName).toString().isEmpty ? _senderDetailsController.documentTypeName.value : box.read(Keys.documnetTypeName).toString();
+                           //_addNewDocumentController.documentTypeController.text = box.read(Keys.documnetTypeName).toString().isEmpty ? _senderDetailsController.documentTypeName.value : box.read(Keys.documnetTypeName).toString();
                             Get.toNamed(Routes.ADD_NEW_DOCUMENT_SCREEN);
                         }else{
                            _senderDetailsController.senderDetailsPageController = PageController(viewportFraction: 1.0,initialPage: 0);

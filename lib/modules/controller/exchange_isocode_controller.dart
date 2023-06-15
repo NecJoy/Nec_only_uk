@@ -1,6 +1,7 @@
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:necmoney/core/utils/keys.dart';
+import 'package:necmoney/core/utils/log.dart';
 import 'package:necmoney/core/values/strings.dart';
 import 'package:necmoney/data/provider/api_provider.dart';
 
@@ -17,6 +18,8 @@ class ExchangeLCIsoCode extends GetxController{
       if(data != null){
         box.write(Keys.exchangeLCIsoCode, data["exchangeLCIsoCode"]);
         box.write(Keys.remCountyCode, data["remitNoPrefix"]);
+        //Logger(key: "dataexchangeLCIsoCode", value: data["exchangeLCIsoCode"]);
+        //Logger(key: "dataremitNoPrefix", value:data["remitNoPrefix"]);
       }
     });
   }

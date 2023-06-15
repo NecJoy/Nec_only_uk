@@ -1,6 +1,7 @@
 
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
+import 'package:necmoney/core/utils/helpers.dart';
 
 import '../../data/provider/api_provider.dart';
 import '../../modules/controller/signin_controller.dart';
@@ -23,7 +24,8 @@ class OTPController extends GetxController{
       url: Strings.resendActivationUrl,
       data: resendActivationModel.toJson(),
     ).then((data) {
-      Logger(key: "Resend Activation", value: data);
+      Helpers.showSnackBar(title: "Resend Activation", message: "Resend Activation code your email");
+      //Logger(key: "Resend Activation", value: data);
     });
   }
 

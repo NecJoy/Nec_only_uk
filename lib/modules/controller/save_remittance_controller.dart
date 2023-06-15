@@ -64,7 +64,7 @@ Pay with card data store two way .
       "remPhoneNo": "${box.read(Keys.remitterPhoneNumber)}",
       "remZipCode": "${box.read(Keys.remZipCode)}",
     };
-    Logger(key: "Data", value:dataMap.toString());
+    //Logger(key: "Data", value:dataMap.toString());
     _apiProvider.postData(
       baseUrl: Strings.baseUrl, 
       url: Strings.createTxn365Token, 
