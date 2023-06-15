@@ -21,11 +21,11 @@ class  GetDealingRateContoller  extends GetxController {
       url: Strings.getDealingRate + "FldPsfx=$fldPsfx&SubcompanyID=$subCompanyId&CountryID=$countryId&CurrencyID=$currencyId"
     ).then((data){
       if(data != null){
-        Logger(key: "DataGetDealinkRate", value: data.toString());
+       // Logger(key: "DataGetDealinkRate", value: data.toString());
         GetDealingRateModel getDealingRateModel = GetDealingRateModel.fromJson(data);
         dealingRate.value = getDealingRateModel.rate!;
         box.write(Keys.dealingRate, getDealingRateModel.rate!);
-        Logger(key: "Get Dealing Rate", value: dealingRate.value);
+        //Logger(key: "Get Dealing Rate", value: dealingRate.value);
       }
     });
   }
@@ -42,7 +42,7 @@ class  GetDealingRateContoller  extends GetxController {
           _c.add( SubcompanyBranchModel.fromJson(i));
         }
          box.write(Keys.subCompanyBranchID, _c.first.branchId);
-         Logger(key: "Keys.subCompanyBranchID", value: _c.first.branchId);
+        // Logger(key: "Keys.subCompanyBranchID", value: _c.first.branchId);
       });
   }
 }

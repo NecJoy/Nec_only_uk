@@ -238,7 +238,7 @@ class SendMoneyController extends GetxController{
       baseUrl: Strings.baseUrl,
       url:  Strings.getBankBranchesUrl + "BankID=${bankAndWalletPayeebankId.value}&City=${branchCityName.value}",
     );
-    Logger(key: "responcePrint", value:responce);
+   // Logger(key: "responcePrint", value:responce);
     List<BankBranchModel> c = [];
     for(var i in responce["bankBranches"]){
       c.add(BankBranchModel.fromJson(i));
@@ -285,8 +285,8 @@ class SendMoneyController extends GetxController{
     for(var i in response["subcompanies"]){
       c.add(i);
     }
-    Logger(key: "GetSubCompany", value: c.toString());
-    Logger(key: "subCompanyID", value: subCompanyID);
+    // Logger(key: "GetSubCompany", value: c.toString());
+    // Logger(key: "subCompanyID", value: subCompanyID);
     if(c.isNotEmpty){
       List _c =  c.where((element) => element.toString().contains(subCompanyID.toString())).toList();
       if(_c.isNotEmpty){
@@ -305,7 +305,7 @@ class SendMoneyController extends GetxController{
       baseUrl: Strings.baseUrl,
       url: Strings.getCountryPayCity + "countryID=$countryId&currencyID=$currencyID&modeID=$modeId",
     );
-    Logger(key: "Responce", value: responce);
+    //Logger(key: "Responce", value: responce);
     List _city = [];
     for(var i in responce["subcompaniesCities"]){
       _city.add(i);

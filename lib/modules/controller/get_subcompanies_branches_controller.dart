@@ -27,8 +27,8 @@ class GetSubCompaniesBranchesController extends GetxController{
   }
 
   box.write(Keys.subCompanyBranchID, _c[0]["branchID"]);
-  Logger(key: "subCompanyBranches Check", value: _c);
-  Logger(key: "subCompanyBranches Check", value: box.read(Keys.subCompanyBranchID));
+  // Logger(key: "subCompanyBranches Check", value: _c);
+  // Logger(key: "subCompanyBranches Check", value: box.read(Keys.subCompanyBranchID));
 
  }
 

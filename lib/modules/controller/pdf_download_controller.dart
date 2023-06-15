@@ -2,6 +2,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:necmoney/core/utils/helpers.dart';
+import 'package:necmoney/core/utils/log.dart';
+import 'package:necmoney/core/values/strings.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -12,10 +14,11 @@ class PdfDownloadController extends GetxController {
   var indexNumber = "0".obs;
   Future downLoadPdf (String fileName, String pdfurl)async{
     downloadStart.value = true;
+    //Logger(key: "pdfurl", value: pdfurl);
     try{
     var dir =  await getTemporaryDirectory();
     await dio.download(
-      pdfurl,
+      Strings.report + pdfurl,
       "${dir.path}/$fileName",
        onReceiveProgress: (int x , int y){
          progressValue.value = ((x / y) * 100).toStringAsFixed(0);

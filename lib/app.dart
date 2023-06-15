@@ -50,9 +50,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
        if(state == AppLifecycleState.resumed){
          _apiProvider.getData(baseUrl: Strings.baseUrl , url: Strings.displayRateUrl);
        }
-      Logger(key: "App State", value: state);
+      //Logger(key: "App State", value: state);
     }
-     Logger(key: "_sessionTimerController.checkSession", value: _sessionTimerController.checkSession );
+    // Logger(key: "_sessionTimerController.checkSession", value: _sessionTimerController.checkSession );
   }
 
   @override

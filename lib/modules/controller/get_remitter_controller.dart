@@ -1,6 +1,8 @@
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:necmoney/core/utils/log.dart';
+import 'package:necmoney/modules/controller/upload_document_controller.dart';
 import '../../core/utils/keys.dart';
 import '../../core/values/strings.dart';
 import '../../data/model/get_remitter_model.dart';
@@ -68,6 +70,7 @@ class  GetRemitterInfo extends GetxController {
     });
   }
 
+final AddNewDocumentController _addNewDocumentController = Get.put(AddNewDocumentController());
   Future getRemitterDetailsForPayment(String remitterId, {bool isRePayment = false, String? trackingId})async{
     _apiProvider.getData(
       baseUrl: Strings.baseUrl, 
@@ -78,6 +81,10 @@ class  GetRemitterInfo extends GetxController {
         box.write(Keys.documnetTypeName , getRemitterModel.docName.toString());
         box.write(Keys.remCounty, getRemitterModel.countryName.toString());
         _senderDetialsController.documentTypeName.value = getRemitterModel.docName.toString();
+         _addNewDocumentController.documentTypeController.text =  getRemitterModel.docName.toString();
+        // Logger(key: "Keys.documnetTypeName", value: getRemitterModel.docName.toString());
+        // Logger(key: "Keys.remCounty", value:getRemitterModel.countryName.toString());
+        // Logger(key: "documentTypeName.value", value: getRemitterModel.docName.toString());
       }
     });
   }

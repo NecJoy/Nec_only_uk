@@ -34,7 +34,7 @@ final VersionController _controller = Get.put(VersionController());
 
 Future _getFirebaseToKen () async{
    final fcmToken = await FirebaseMessaging.instance.getToken();
-   Logger(key: "_getFirebaseToKen", value: fcmToken.toString());
+   //Logger(key: "_getFirebaseToKen", value: fcmToken.toString());
 }
 Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:necmoney/core/utils/session_timer.dart';
+import 'package:necmoney/data/service/local_data_with_apps.dart';
 import 'package:necmoney/modules/controller/exchange_isocode_controller.dart';
 import 'package:necmoney/modules/controller/get_remitter_controller.dart';
 import 'package:necmoney/modules/controller/sender_detials_controller.dart';
@@ -52,6 +53,9 @@ class SignInController extends GetxController{
       if(data != null){
         _sessionTimerController.checkSession = true;
         box.write(Keys.countryID, data["countryID"]);
+        box.write(Keys.exchangeLCIsoCode, RemitterLocalDateCollaction.exchangeLCIsoCode(data["countryID"].toString()));
+        box.write(Keys.remCountyCode, RemitterLocalDateCollaction.exchangeLCIsoCode(data["countryID"].toString()));
+        box.write(Keys.remCounty, RemitterLocalDateCollaction.countryName(data["countryID"].toString()));
         if(data['message'].toString().contains(Strings.unAssigned)){
           signInModel = SignInModel.fromJson(data["body"]);
         }else {
@@ -87,7 +91,7 @@ class SignInController extends GetxController{
               box.write(Keys.surName, data["surName"]);
               box.write(Keys.senderFromCountryId, data["countryID"]);
               box.write(Keys.remitterId, data["remitterID"]);
-              _exchangeLCIsoCode.getexchangeCode();
+              // _exchangeLCIsoCode.getexchangeCode();
               _senderDetailsController.senderDetailsPageController = PageController(viewportFraction: 1.0,initialPage: 0);
               Get.toNamed(Routes.BASE_NAV_LAYOUT);
             }else {
@@ -98,8 +102,10 @@ class SignInController extends GetxController{
               box.write(Keys.remitterId, data["remitterID"]);
               box.write(Keys.countryID, data["countryID"]);
               _homeController.calculateLenght();
-               _exchangeLCIsoCode.getexchangeCode();
-               _getRemitterInfo.getRemitterDetailsForPayment(box.read(Keys.remitterId).toString());
+               
+              // _exchangeLCIsoCode.getexchangeCode();
+              // _getRemitterInfo.getRemitterDetailsForPayment(box.read(Keys.remitterId).toString());
+               
               Get.toNamed(Routes.BASE_NAV_LAYOUT);
             }
           }

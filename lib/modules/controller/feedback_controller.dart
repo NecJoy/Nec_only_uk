@@ -27,11 +27,11 @@ class FeedbackController extends GetxController {
         uploadFiles(_files);
         for (var file in _files) {
           documents.add(file.toString().split("/")[7].split("'")[0]);
-          Logger(key: "File error", value: documents);
+          //Logger(key: "File error", value: documents);
         }
       }
     } catch (err) {
-      Logger(key: "File error", value: err);
+     // Logger(key: "File error", value: err);
     }
   }
 

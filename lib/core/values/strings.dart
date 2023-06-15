@@ -19,8 +19,8 @@ class Strings {
   static String playRatingUrl = "https://play.google.com/store/apps/details?id=com.necmoney.necmoneyapp";
   static String appStoreRatingUrl = "https://apps.apple.com/us/app/nec-money/id1476959641";
   //Base url
-  static String baseUrl = "https://mapp.necmoney.com/api";
-  static String report = " https://mapp.necmoney.com/Reports/";
+  static String baseUrl = "https://mapp.necmoney.app/api";
+  static String report =  "https://mapp.necmoney.app/Reports/";
 
 
   // TT issue date time change And Link change
